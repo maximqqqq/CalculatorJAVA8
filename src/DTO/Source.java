@@ -3,31 +3,32 @@ package DTO;
 import java.util.HashSet;
 import java.util.Set;
 
-public  class Source  {
-
-    private Set<Double> sources;
-
-    public Source(Set<Double> sources) {
-        this.sources = sources;
-    }
+public class Source {
+    private double a;
+    private double b;
 
     public Source() {
 
     }
 
-    public void setSources(Set<Double> sources) {
-//        this.sources = sources;
-        sources = new HashSet<>();
+    public Source(double a, double b) {
+        this.a = a;
+        this.b = b;
     }
 
-    public Set<Double> getSources() {
-        return sources;
+    public void setA(double a) {
+        this.a = a;
     }
 
-    @Override
-    public String toString() {
-        return "Source{" +
-                "sources=" + sources +
-                '}';
+    public void setB(double b) {
+        this.b = b;
+    }
+
+    public double getA() {
+        return a;
+    }
+
+    public double getB() {
+        return b;
     }
 }

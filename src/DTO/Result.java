@@ -10,6 +10,8 @@ public class Result  {
         this.rez = rez;
     }
 
+
+
     public double getRez() {
         return rez;
     }
