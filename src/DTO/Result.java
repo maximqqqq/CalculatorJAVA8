@@ -1,8 +1,6 @@
 package DTO;
 
-import java.util.Set;
-
-public class Result  {
+public class Result {
 
     private double rez;
 
@@ -10,16 +8,12 @@ public class Result  {
         this.rez = rez;
     }
 
-
-
     public double getRez() {
         return rez;
     }
 
     @Override
     public String toString() {
-        return "Result{" +
-                "rez=" + rez +
-                '}';
+        return "" + rez;
     }
 }
