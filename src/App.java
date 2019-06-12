@@ -34,18 +34,17 @@ public class App {
         enumMap2.put(OperationType.ADD, new HashSet<>(list));
 
 
-        Map<String, Set<Result>> map3 = enumMap2
-                .entrySet()
-                .stream()
-                .map(operationTypeSetEntry -> operationTypeSetEntry.getValue()
+                enumMap2
+                        .entrySet()
                         .stream()
-                        .map(source -> {
-                            Double calculate1 = operationTypeSetEntry.getKey().function.calculate(source.getA(), source.getB());
-                            return calculate1;
-                        }))
-                .collect(Collectors.toMap(OperationType::getSymbol, x -> new HashSet<>(Arrays.asList(x.getFunction())), LinkedHashMap::new));
+                        .map(operationTypeSetEntry -> operationTypeSetEntry.getValue()
+                                .stream()
+                                .map(source -> new Result(operationTypeSetEntry.getKey().function.calculate(source.getA(), source.getB())))
+                                .collect(Collectors.toSet()))
+                        .collect(Collectors.toMap(OperationType::getSymbol, operationType ->, LinkedHashMap::new));
 
-        System.out.println();
+        
     }
 }
 //x-> (Set<Result>) new HashSet<Result>()
+//OperationType::getSymbol, OperationType::getFunction, LinkedHashMap::new
